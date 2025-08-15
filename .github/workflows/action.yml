@@ -4,10 +4,7 @@ permissions:
   write-all
 
 on:
-  pull_request:
-    types: [closed]
-  pull_request_review:
-  pull_request_review_comment:
+  push:
 
 jobs:
   add-contents:
