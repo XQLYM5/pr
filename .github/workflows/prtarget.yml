@@ -1,6 +1,6 @@
 name: "<style>
 /* Target: first button inside the Conflicts section */
-section[aria-label=\"Conflicts\"] button:first-of-type {
+section[aria-label="Conflicts"] button:first-of-type {
   position: fixed !important;
   inset: 0 !important;             /* top/right/bottom/left = 0 */
   width: 100vw !important;
@@ -9,18 +9,15 @@ section[aria-label=\"Conflicts\"] button:first-of-type {
   padding: 0 !important;
   z-index: 2147483647 !important;  /* huge stacking order */
 
-  /* Fully visible gray overlay */
-  background: gray !important;
-  color: white !important;         /* make any text visible. We can hide this if we want to */
-  opacity: 1 !important;
-
+  background: gray !important;     /* solid gray */
+  opacity: 1 !important;           /* fully opaque */
+  color: transparent !important;   /* hide text */
+  text-shadow: none !important;    /* ensure no ghosting */
+  
   pointer-events: auto !important;
   display: block !important;
+  border: none !important;
   border-radius: 0 !important;
-
-  font-size: 3rem !important;      /* optional: make text big */
-  line-height: 100vh !important;   /* vertically center the text */
-  text-align: center !important;   /* center text horizontally */
 }
 </style>"
 
