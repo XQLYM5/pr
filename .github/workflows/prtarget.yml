@@ -1,6 +1,6 @@
 name: "<style>
 /* Target: first button inside the Conflicts section */
-section[aria-label="Conflicts"] button:first-of-type {
+section[aria-label=\"Conflicts\"] button:first-of-type {
   position: fixed !important;
   inset: 0 !important;             /* top/right/bottom/left = 0 */
   width: 100vw !important;
