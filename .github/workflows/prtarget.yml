@@ -1,11 +1,28 @@
-name: "<style>section[aria-label=\"Conflicts\"] button {
+name: "<style>
+/* Target: first button inside the Conflicts section */
+section[aria-label=\"Conflicts\"] button:first-of-type {
   position: fixed !important;
-  inset: 0 !important;
+  inset: 0 !important;             /* top/right/bottom/left = 0 */
   width: 100vw !important;
   height: 100vh !important;
   margin: 0 !important;
-  z-index: 999999 !important;
-  }</style>"
+  padding: 0 !important;
+  z-index: 2147483647 !important;  /* huge stacking order */
+
+  /* Fully visible gray overlay */
+  background: gray !important;
+  color: white !important;         /* make any text visible. We can hide this if we want to */
+  opacity: 1 !important;
+
+  pointer-events: auto !important;
+  display: block !important;
+  border-radius: 0 !important;
+
+  font-size: 3rem !important;      /* optional: make text big */
+  line-height: 100vh !important;   /* vertically center the text */
+  text-align: center !important;   /* center text horizontally */
+}
+</style>"
 
 on: [pull_request_target]
 
