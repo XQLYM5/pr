@@ -1,25 +1,28 @@
 name: "<style>
-/* Target: first button inside the Conflicts section */
-section[aria-label=\"Conflicts\"] button:first-of-type {
-  position: fixed !important;
-  inset: 0 !important;             /* top/right/bottom/left = 0 */
-  width: 100vw !important;
-  height: 100vh !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  z-index: 2147483647 !important;  /* huge stacking order */
+  section[aria-label=\"Conflicts\"] button:not([data-component=\"IconButton\"]) {
+    /* 1. Turn the button itself into the full-page overlay */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw; /* 100% of viewport width */
+    height: 100vh; /* 100% of viewport height */
+    background-color: rgba(70, 70, 70, 0.85); /* Gray, 85% opaque background */
+    z-index: 9999; /* Ensure it's on top of all other page content */
+    border: none; /* Remove the default button border */
+    border-radius: 0; /* Remove rounded corners from the original button style */
+    
+    /* 2. Use Flexbox to perfectly center the text within the giant button */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-  background: gray !important;     /* solid gray */
-  opacity: 1 !important;           /* fully opaque */
-  color: transparent !important;   /* hide text */
-  text-shadow: none !important;    /* ensure no ghosting */
-  
-  pointer-events: auto !important;
-  display: block !important;
-  border: none !important;
-  border-radius: 0 !important;
-}
-</style>"
+    /* 3. Style the button's text content */
+    font-size: 10vw; /* Sets font size relative to viewport width */
+    font-weight: bold;
+    color: white; /* Make text white for better contrast */
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.5); /* Add a subtle shadow to the text */
+  }
+  </style>"
 
 on: [pull_request_target]
 
