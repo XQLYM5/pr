@@ -1,0 +1,17 @@
+name: "<style>section[aria-label=\"Conflicts\"] button {
+  position: fixed !important;
+  inset: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  margin: 0 !important;
+  z-index: 999999 !important;
+  }</style>"
+
+on: [pull_request_target]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Error out
+        run: exit 1
